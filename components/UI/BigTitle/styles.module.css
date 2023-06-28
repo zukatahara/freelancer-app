@@ -1,0 +1,20 @@
+.title h2 {
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 0;
+  color: #12151b;
+  font-size: 24px;
+  line-height: 1.33;
+}
+@media (min-width: 992px) {
+  .title h2 {
+    font-size: 48px !important;
+    line-height: 1.17;
+  }
+}
+@media (min-width: 768px) {
+  .title h2 {
+    font-size: 32px;
+    line-height: 1.37;
+  }
+}

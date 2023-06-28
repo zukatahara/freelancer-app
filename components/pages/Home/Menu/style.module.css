@@ -1,0 +1,23 @@
+.box {
+  background-color: #12151b !important;
+}
+ul.menu {
+  padding: 0;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+ul.menu li {
+  display: inline-block;
+  line-height: 47px;
+}
+ul.menu li a {
+  padding: 16px;
+  color: #f7f8f9;
+  font-weight: 400;
+  font-size: 14px;
+}
+ul.menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

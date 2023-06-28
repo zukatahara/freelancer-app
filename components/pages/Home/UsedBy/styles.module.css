@@ -1,0 +1,50 @@
+.used-by {
+  padding-bottom: 32px;
+  padding-top: 32px;
+}
+.swiped {
+  display: none;
+}
+.used-by .content {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.content .title {
+  margin-right: 64px;
+  display: flex;
+  white-space: nowrap;
+}
+.content p {
+  color: #12151b;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+.img-custom:not(:last-child) {
+  margin-right: 32px;
+}
+
+@media only screen and (max-width: 1310px) and (min-width: 992px) {
+  img.img-custom {
+    width: 55px;
+  }
+}
+@media (max-width: 991px) {
+  .used-by .content {
+    flex-direction: column;
+  }
+  .content p {
+    margin-bottom: 1rem;
+  }
+  .img {
+    display: none;
+  }
+  .swiped {
+    display: block;
+  }
+}
