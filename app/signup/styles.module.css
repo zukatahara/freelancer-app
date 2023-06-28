@@ -6,7 +6,7 @@
 .login-main {
   margin: 0 auto;
   max-width: 400px;
-  padding: 48px 24px 24px;
+  padding: 48px 0;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 6px #bcc5d3;
@@ -200,7 +200,7 @@
   font-size: 20px;
   color: #9da3ad;
   /* transition: transform 0.3s;
-  display: inline-block; */
+    display: inline-block; */
 }
 .error-message > .button-close:hover {
   color: black;
