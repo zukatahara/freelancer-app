@@ -70,8 +70,8 @@ export default function Footer() {
   ];
 
   return (
-    <div className="container-custom">
-      <div className="footer py-3">
+    <div className="container-footer">
+      <div className="footer pt-3">
         <div className="footer1">
           <div className="footer1-wrapper d-flex flex-wrap row">
             <div className="footer-col col-lg-2 col-12 px-2 mb-3 pb-3">
@@ -139,19 +139,19 @@ export default function Footer() {
           <div className="footer2-container">
             <div className="d-flex flex-wrap row pt-4">
               <div className="col-12 col-md-3 mb-3">
-                <p>67.389.624</p>
+                <p className="text-14">67.389.624</p>
                 <p>Người Dùng Đã Đăng Ký</p>
               </div>
               <div className="col-12 col-md-3 mb-3">
-                <p>22.785.127</p>
+                <p className="text-14">22.785.127</p>
                 <p>Tổng Số Việc Đã Đăng</p>
               </div>
               <div className="col-12 col-md-6 mb-3">
-                <p>
+                <p className="text-11">
                   Freelancer ® is a registered Trademark of Freelancer
                   Technology Pty Limited (ACN 142 189 759)
                 </p>
-                <p>
+                <p className="text-11">
                   Copyright © 2023 Freelancer Technology Pty Limited (ACN 142
                   189 759)
                 </p>

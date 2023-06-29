@@ -1,4 +1,4 @@
-.container-custom{
+.container-footer{
     display: flex;
     justify-content: center;
     background-color: #12151b;
@@ -36,11 +36,13 @@
     line-height: 1.5;
     font-weight: 500;
     font-family: Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+    margin-bottom: 12px;
 }
 
 .text-item a {
     color: #FFFFFF;
     font-size: 13px;
+    font-weight: 450;
 }
 
 .text-item a:hover {
@@ -61,4 +63,21 @@
 
 .footer2-container{
     border-top: solid .5px #f7f8f933;
+}
+
+.footer2 p{
+    font-family: Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.text-14{
+    font-size: 14px !important;
+    font-weight: 600;
+}
+
+.text-13{
+    font-size: 13px !important;
+}
+
+.text-11{
+    font-size: 11px !important;
 }
