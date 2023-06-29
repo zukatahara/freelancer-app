@@ -11,7 +11,6 @@ import PlacePostComponent from "@/components/pages/Home/PlacePost";
 export default function Home() {
   return (
     <>
-      <MenuComponent />
       <BannerComponent />
       <UsedByComponent />
       <CompleteWorkComponent />

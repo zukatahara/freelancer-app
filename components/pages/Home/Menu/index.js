@@ -6,7 +6,7 @@ export default function MenuComponent() {
         <>
             <div className='col-12'>
                 <div className={style.box}>
-                    <div className='container'>
+                    <div className='container-custom container'>
                         <div className={style.menu}>
                             <ul className={style.menu}>
                                 <li>
@@ -19,7 +19,7 @@ export default function MenuComponent() {
                                     <Link href="#">Get Ideas</Link>
                                 </li>
                                 <li>
-                                    <Link href="#">About</Link>
+                                    <Link href="/about">About</Link>
                                 </li>
                                 <li>
                                     <Link href="#">Resources</Link>

@@ -1,0 +1,138 @@
+.banner-section {
+  color: #fff;
+  height: 460px;
+  min-height: 460px;
+
+  position: relative;
+}
+.banner-section::before {
+  background-image: url(https://www.f-cdn.com/assets/css/images/about-us/overview-banner-c5bd0b23.jpg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+}
+.content {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.content h1,
+.content p {
+  max-width: 75%;
+}
+.content h1 {
+  text-align: center;
+  /* font-size: 41px; */
+  font-size: 2.5625rem;
+  line-height: 1.17;
+  font-weight: 700;
+  margin: 0 auto;
+}
+.content p {
+  text-align: center;
+  /* font-size: 24px; */
+  font-size: 1.5rem;
+  line-height: 1.33;
+  margin: 0 auto 24px;
+}
+.introduce {
+  padding: 80px 0;
+}
+.introduce .img {
+  width: 100%;
+  text-align: center;
+  height: 362px;
+}
+.introduce img {
+  width: auto;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+  height: 100%;
+}
+.introduce-content {
+  height: 100%;
+  color: #0e1724;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+.introduce-content h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  color: #0e1724;
+  font-weight: 700;
+}
+.introduce-content p {
+  font-size: 14px !important;
+  margin-bottom: 0;
+}
+
+.banner-secondary {
+  height: 460px;
+  background: url("https://www.f-cdn.com/assets/css/images/about-us/overview-banner-map-e0932de9.jpg");
+  background-position: center center;
+}
+.site-section-inner {
+    margin-bottom: 80px;
+}
+
+.bodyCopy {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 80px auto 100px;
+  max-width: 776px;
+  padding: 0 10px;
+  width: 100%;
+}
+.bodyCopy h2{
+    font-weight: 700;
+    line-height: 1.3;
+    font-size: 2rem;
+    margin-bottom: 22px;
+}
+.bodyCopy p{
+    line-height: 1.6;
+    margin: 0;
+    font-size: 16px !important;
+}
+.link-image{
+    margin-top: 80px;
+}
+@media (max-width: 960px) and (min-width: 768px) {
+  .content h1,
+  .content p {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .content h1,
+  .content p {
+    max-width: none;
+    margin-bottom: 12px;
+  }
+  .content h1 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.33;
+    font-weight: 700;
+  }
+  .content p {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  .introduce .img {
+    margin-bottom: 20px;
+  }
+}
