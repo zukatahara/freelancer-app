@@ -1,27 +1,31 @@
-.header-container{
-    display: flex;
-    justify-content: center !important;
-    background-color: #FFFFFF;
+.header-container {
+  display: flex;
+  justify-content: center !important;
+  background-color: #ffffff;
+  position: fixed;
+  width: 100%;
+  z-index: 100000;
+  box-shadow: 0 0 4px #3d4a5d14, 0 2px 4px #3d4a5d1f;
 }
 
-.header{
-    background-color: #FFFFFF;
-    height: 64px;
-    max-width: 1200px;
-    width: 100%;
+.header {
+  background-color: #ffffff;
+  height: 64px;
+  max-width: 1200px;
+  width: 100%;
 }
 
-.freelancer-logo{
-    height: 100%;
-    width: 100%;
+.freelancer-logo {
+  height: 100%;
+  width: 100%;
 }
 
 .auth-btn a {
-    color: #000000;
-    text-decoration: none;
-    line-height: 1.5;
+  color: #000000;
+  text-decoration: none;
+  line-height: 1.5;
 }
 
-.auth-btn a:hover{
-    color: #1772eb
+.auth-btn a:hover {
+  color: #1772eb;
 }

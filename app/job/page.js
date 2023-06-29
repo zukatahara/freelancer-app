@@ -1,8 +1,12 @@
+'use client';
 import Breadcrumb from '@/components/UI/Breadcrumb';
 import styles from './styles.module.css';
 import { IoSearch } from 'react-icons/io5';
 import CategoryJob from '@/components/pages/Job/Category';
-import jobcate1 from '@/public/icons/jobcate1.svg';
+import { jobCates } from '@/db';
+import JobsByCate from '@/components/pages/Job/JobByCate';
+import { useState } from 'react';
+import ListJob from '@/components/pages/Job/JobByCate/ListJob';
 
 const itemsBreadcrumb = [
   {
@@ -15,45 +19,24 @@ const itemsBreadcrumb = [
   },
 ];
 
-const jobCates = [
-  {
-    icon: '/icons/jobcate1.svg',
-    title: 'Trang web, IT & Phần mềm',
-    description: 'PHP, HTML, JavaScript, Kiến trúc phần mềm, WordPress...',
-  },
-  {
-    icon: '/icons/jobcate1.svg',
-    title: 'Điện thoại di động & Máy tính',
-    description: 'Mobile App Development, Android, iPhone, iPad, Kotlin...',
-  },
-  {
-    icon: '/icons/jobcate1.svg',
-    title: 'Sáng tác & Nội dung',
-    description:
-      'Soạn thảo nội dung, Article Writing, Viết quảng cáo, Ghostwriting, Dịch thuật....',
-  },
-  {
-    icon: '/icons/jobcate1.svg',
-    title: 'Thiết kế, Truyền thông & Kiến trúc',
-    description:
-      'Thiết kế đồ họa, Thiết kế trang web, Photoshop, Thiết kế logo, Illustrator...',
-  },
-  {
-    icon: '/icons/jobcate1.svg',
-    title: 'Nhập liệu và Hành chính',
-    description:
-      'Nhập liệu, Excel, Xử lí dữ liệu, Tìm kiếm web, Hỗ trợ khách hàng...',
-  },
-  {
-    icon: '/icons/jobcate1.svg',
-    title: 'Khoa học & Kĩ thuật',
-    description: 'AutoCAD, Kĩ thuật, CAD/CAM, Kĩ thuật điện, Điện tử...',
-  },
-];
-
 const JobPage = () => {
+  const [listJob, setListJob] = useState([]);
+
+  const handleSearch = e => {
+    const keyword = e.target.value.trim();
+    if (!keyword) return setListJob([]);
+    const newListJob = [];
+    jobCates.forEach(cate => {
+      return cate.jobs.filter(job => {
+        if (job.name.toLowerCase().includes(keyword.toLowerCase()))
+          newListJob.push(job);
+      });
+    });
+    setListJob(newListJob);
+  };
+
   return (
-    <div id={styles['login-page']}>
+    <div id={styles['job-page']}>
       <section className={`${styles['section-view_search']}`}>
         <div className='container'>
           <Breadcrumb items={itemsBreadcrumb} />
@@ -64,10 +47,11 @@ const JobPage = () => {
               type='text'
               className={styles['form-input-search']}
               placeholder='Tìm kiếm một hạng mục'
+              onChange={handleSearch}
             />
           </div>
-
-          <div className='row'>
+          <ListJob jobs={listJob} />
+          <div className={`row ${listJob.length > 0 ? 'mt-5' : ''}`}>
             {jobCates.map(cate => (
               <div className='col-lg-4 col-md-6 col-12' key={cate?.title}>
                 <CategoryJob
@@ -78,6 +62,18 @@ const JobPage = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className={`${styles['section-view_all']} `}>
+        <div className='container'>
+          <h2 className='mb-3'>Xem tất cả các hạng mục</h2>
+
+          {jobCates.map(cate => (
+            <div key={cate?.title}>
+              <JobsByCate title={cate.title} jobs={cate.jobs} />
+            </div>
+          ))}
         </div>
       </section>
     </div>
