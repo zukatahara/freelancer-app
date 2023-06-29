@@ -123,7 +123,7 @@ export default function SkillFilter() {
       <div className={styles["online-check"]}>
         <p className={styles["filter-type"]}>Trực tuyến</p>
         <label class="checkbox">
-          <input type="checkbox"></input>
+          <input className="form-check-input" type="checkbox"></input>
           Chỉ những freelancer trực tuyến
           <br></br>
           (để trò chuyện trực tuyến)

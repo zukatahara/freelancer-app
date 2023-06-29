@@ -165,5 +165,10 @@
 /* -------------- */
 .online-check input{
     margin-bottom: 0px;
-    margin-right: 3px;
+    margin-right: 4px;
+    border: solid 1px #727374;
+}
+
+.online-check label {
+    font-size: 14px;
 }
