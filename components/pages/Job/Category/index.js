@@ -5,7 +5,7 @@ const CategoryJob = ({ icon, title, description }) => {
   return (
     <div className='row'>
       <div className='col-3'>
-        <image src={icon} alt='icon' />
+        <Image src={icon} alt='icon' width={56} height={56} />
       </div>
       <div className='col-9'>
         <h2 className={styles['title']}>{title}</h2>

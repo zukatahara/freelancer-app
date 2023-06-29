@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import { IoSearch } from 'react-icons/io5';
 import CategoryJob from '@/components/pages/Job/Category';
 import jobcate1 from '@/public/icons/jobcate1.svg';
+
 const itemsBreadcrumb = [
   {
     href: '/',
@@ -16,35 +17,35 @@ const itemsBreadcrumb = [
 
 const jobCates = [
   {
-    icon: jobcate1,
+    icon: '/icons/jobcate1.svg',
     title: 'Trang web, IT & Phần mềm',
     description: 'PHP, HTML, JavaScript, Kiến trúc phần mềm, WordPress...',
   },
   {
-    icon: 'ưqq',
+    icon: '/icons/jobcate1.svg',
     title: 'Điện thoại di động & Máy tính',
     description: 'Mobile App Development, Android, iPhone, iPad, Kotlin...',
   },
   {
-    icon: 'ưqq',
+    icon: '/icons/jobcate1.svg',
     title: 'Sáng tác & Nội dung',
     description:
       'Soạn thảo nội dung, Article Writing, Viết quảng cáo, Ghostwriting, Dịch thuật....',
   },
   {
-    icon: 'ưqq',
+    icon: '/icons/jobcate1.svg',
     title: 'Thiết kế, Truyền thông & Kiến trúc',
     description:
       'Thiết kế đồ họa, Thiết kế trang web, Photoshop, Thiết kế logo, Illustrator...',
   },
   {
-    icon: 'ưqq',
+    icon: '/icons/jobcate1.svg',
     title: 'Nhập liệu và Hành chính',
     description:
       'Nhập liệu, Excel, Xử lí dữ liệu, Tìm kiếm web, Hỗ trợ khách hàng...',
   },
   {
-    icon: 'ưqq',
+    icon: '/icons/jobcate1.svg',
     title: 'Khoa học & Kĩ thuật',
     description: 'AutoCAD, Kĩ thuật, CAD/CAM, Kĩ thuật điện, Điện tử...',
   },
