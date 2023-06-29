@@ -1,0 +1,36 @@
+import { GrClose } from 'react-icons/gr';
+import Link from 'next/link';
+import styles from './styles.module.css';
+const BannerForCateJobs = ({ setIsOpenBanner }) => {
+  return (
+    <section className={styles['banner']}>
+      <div className='container'>
+        <div className={`${styles['banner-main']} row`}>
+          <div className='col-7'>
+            <h2>Cần thuê một freelancer cho công việc này?</h2>
+            <p>
+              Miễn phí khi đăng ký, hãy nhập vào những gì bạn cần và nhận các
+              báo giá miễn phí trong tích tắc
+            </p>
+          </div>
+          <div className='col-5 d-flex justify-content-center align-items-center'>
+            <form className={styles['banner-form']}>
+              <input type='text' placeholder='Bạn muốn thuê việc gì?' />
+              <button className={styles['banner-form-btn']}>
+                Đăng dự án ngay
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <GrClose
+        size={25}
+        className={styles['btn-close']}
+        color='red'
+        onClick={() => setIsOpenBanner(false)}
+      />
+    </section>
+  );
+};
+
+export default BannerForCateJobs;
