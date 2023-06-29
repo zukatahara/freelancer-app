@@ -1,0 +1,12 @@
+#breadcrumb {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#breadcrumb > a {
+  color: #4d525b;
+  text-decoration: none;
+  font-size: 14px;
+}

@@ -17,7 +17,7 @@ import * as Yup from 'yup';
 const validationSchema = Yup.object().shape({
   username: Yup.string().required('Hãy nhập tên người dùng hoặc email'),
   password: Yup.string().required('Hãy nhập mật khẩu'),
-  email: Yup.string().required('Hãy nhập email'),
+  email: Yup.string().required('Hãy nhập địa chỉ email của bạn.'),
 });
 
 export default function LoginPage() {
@@ -48,7 +48,7 @@ export default function LoginPage() {
     }
   };
 
-  const handleForget = async () => {
+  const handleForget = async e => {
     e.preventDefault();
     try {
       await validationSchema.validate(
@@ -57,7 +57,12 @@ export default function LoginPage() {
       );
       // Perform login
     } catch (err) {
-      setErrors({ ...errors, email: err.message });
+      err.inner.forEach(error => {
+        if (error.path === 'email') {
+          setErrors({ ...errors, email: error.message });
+          return;
+        }
+      });
     }
   };
 
@@ -147,11 +152,7 @@ export default function LoginPage() {
                   </p>
                 </div>
                 <div>
-                  <div
-                    className={`${styles['input-password']} ${
-                      errors.password ? styles['input-error'] : ''
-                    }`}
-                  >
+                  <div className={`${styles['input-password']}`}>
                     <input
                       type={showPassword ? 'text' : 'password'}
                       placeholder='Mật khẩu'
@@ -161,6 +162,7 @@ export default function LoginPage() {
                           return { ...prev, password: '' };
                         });
                       }}
+                      className={errors.password ? styles['input-error'] : ''}
                     />
                     <div
                       className={styles['show-password']}
@@ -194,7 +196,14 @@ export default function LoginPage() {
                     />
                     <span>Ghi nhớ tôi</span>
                   </label>
-                  <p onClick={() => setIsForget(true)}>Quên mật khẩu?</p>
+                  <p
+                    onClick={() => {
+                      setIsForget(true);
+                      setErrors({});
+                    }}
+                  >
+                    Quên mật khẩu?
+                  </p>
                 </div>
                 {errors.message && (
                   <div className={styles['error-message']}>

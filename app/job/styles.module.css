@@ -1,0 +1,43 @@
+#login-page h1 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.section-view_search {
+  padding: 72px 0;
+  background-color: #f0f0f0;
+}
+.has-search {
+  position: relative;
+  margin: 48px 0;
+}
+.has-search .form-input-search {
+  padding-left: 2.7rem;
+  width: 100%;
+  height: 54px;
+}
+
+.has-search .form-control-search {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  top: 15px;
+  left: 13px;
+  width: 24px;
+  height: 24px;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #75787d;
+}
+
+.form-input-search {
+  font-size: 1rem;
+  border: 0;
+  overflow: visible;
+  border: 1px solid #bec0c2;
+}
+
+.form-input-search:focus-visible {
+  outline: none;
+}
