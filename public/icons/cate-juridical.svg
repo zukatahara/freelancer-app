@@ -1,0 +1,22 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-2 -2 26 26" enable-background="new -2 -2 26 26" xml:space="preserve" class="flicon-courthouse" width="56"  height="56" >
+<g stroke="#4D525B" fill-opacity="0" fill="#000000" stroke-width="1.4px">
+    <g stroke="#4D525B" stroke-width="1.4px" fill-opacity="0">
+        <line fill="none" x1="1.6" y1="18.4" x2="1.6" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="0.6" y1="18.4" x2="5.6" y2="18.4" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="-0.4" y1="22.4" x2="22.4" y2="22.4" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="-0.4" y1="20.4" x2="22.4" y2="20.4" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="0.6" y1="10.5" x2="5.6" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="8.5" y1="18.4" x2="13.4" y2="18.4" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="8.5" y1="10.5" x2="13.4" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="4.5" y1="18.4" x2="4.5" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="9.5" y1="18.4" x2="9.5" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="12.5" y1="18.4" x2="12.5" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="16.4" y1="18.4" x2="21.4" y2="18.4" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="16.4" y1="10.5" x2="21.4" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="17.4" y1="18.4" x2="17.4" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <line fill="none" x1="20.4" y1="18.4" x2="20.4" y2="10.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+        <polygon fill="none" points="-0.4,8.5 22.4,8.5 11,-0.4      " stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></polygon>
+    </g>
+    <circle fill="#73D3FF" cx="11.1" class="flicon-colored-element" cy="5" r="1.4" stroke="#73D3FF" stroke-width="1.4px" fill-opacity="0"></circle>
+</g>
+</svg>

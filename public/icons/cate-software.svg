@@ -1,0 +1,15 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve" class="flicon-monitor" width="56" height="56">
+<g stroke="#4D525B" fill-opacity="0" fill="#000000" stroke-width="1.4px">
+    <path fill="none" d="M23,17.6c0,0.8-0.7,1.5-1.4,1.5H2.8c-0.8,0-1.4-0.7-1.4-1.5V3.8c0-0.8,0.7-1.5,1.4-1.5h18.7
+        C22.3,2.3,23,3,23,3.8V17.6z" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></path>
+    <line fill="none" x1="5.6" y1="21" x2="18.8" y2="21" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+    <line fill="none" x1="12.2" y1="19.1" x2="12.2" y2="21" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+    <circle fill="none" cx="12.2" cy="17.4" r="0.5" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></circle>
+    <line fill="none" x1="1.5" y1="15.4" x2="23" y2="15.4" stroke="#4D525B" stroke-width="1.4px" fill-opacity="0"></line>
+</g>
+<g stroke="#4D525B" fill-opacity="0" fill="#000000" stroke-width="1.4px">
+    <line class="flicon-colored-element" fill="#73D3FF" x1="9.5" y1="12.8" x2="14.5" y2="6.4" stroke="#73D3FF" stroke-width="1px" fill-opacity="0"></line>
+</g>
+<polyline class="flicon-colored-line" fill="#000000" points="8.1,6 4.6,9.5 8.2,13 " stroke="#73D3FF" fill-opacity="0" stroke-width="1.4px"></polyline>
+<polyline class="flicon-colored-line" fill="#000000" points="15.9,13 19.4,9.5 15.9,6 " stroke="#73D3FF" fill-opacity="0" stroke-width="1.4px"></polyline>
+</svg>

@@ -1,0 +1,28 @@
+.jobs-by-cate {
+  margin-bottom: 64px;
+}
+
+.jobs-by-cate > ul > li {
+  margin-left: -20px;
+}
+.title {
+  font-size: 1.25rem;
+  color: #0e1724;
+  font-weight: bold;
+}
+
+.link {
+  color: #0e1724;
+  font-size: 14px;
+  text-decoration: none;
+
+  display: flex;
+}
+.link:hover {
+  color: #2981ed;
+}
+
+.link:hover svg {
+  /* Định nghĩa màu mới khi hover */
+  fill: #f77d0e;
+}
