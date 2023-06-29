@@ -1,5 +1,5 @@
 import React from "react";
 import style from "./styles.module.css";
-export default function MainButton() {
-  return <a className={style["main-button"]}>Xem tài liệu</a>;
+export default function MainButton({ title }) {
+  return <a className={style["main-button"]}>{title}</a>;
 }

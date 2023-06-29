@@ -38,6 +38,8 @@ export default function GoodWhat() {
             </div>
             <MarginBottom />
             <DividerComponent />
+            <MarginBottom />
+
         </>
     )
 }
