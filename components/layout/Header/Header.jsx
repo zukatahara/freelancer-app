@@ -3,7 +3,7 @@ import "./header.css";
 
 export default function Header() {
   return (
-    <div className="container-custom">
+    <div className="header-container">
       <div className="header d-flex justify-content-between">
         <div className="d-flex align-items-center p-3">
           <img
