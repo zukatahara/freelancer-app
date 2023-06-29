@@ -10,7 +10,7 @@ export default function Header({ pathname }) {
         display:
           pathname.includes("login") || pathname.includes("signup")
             ? "none"
-            : "block",
+            : "flex",
       }}
     >
       <div className="header d-flex justify-content-between">

@@ -76,7 +76,7 @@ export default function Footer({pathname}) {
         display:
           pathname.includes("login") || pathname.includes("signup")
             ? "none"
-            : "block",
+            : "flex",
       }}
     >
       <div className="footer pt-3">
