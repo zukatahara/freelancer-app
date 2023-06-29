@@ -24,10 +24,14 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState('');
   const [isAgree, setIsAgree] = useState(false);
+  const [checkAgree, setCheckAgree] = useState(false);
 
   const handleLogin = async e => {
     e.preventDefault();
     try {
+      if (!isAgree) {
+        setCheckAgree(true);
+      }
       await validationSchema.validate(
         { email, password },
         { abortEarly: false },
@@ -93,11 +97,7 @@ export default function LoginPage() {
                 </p>
               </div>
               <div>
-                <div
-                  className={`${styles['input-password']} ${
-                    errors.password ? styles['input-error'] : ''
-                  }`}
-                >
+                <div className={`${styles['input-password']}`}>
                   <input
                     type={showPassword ? 'text' : 'password'}
                     placeholder='Mật khẩu'
@@ -107,6 +107,7 @@ export default function LoginPage() {
                         return { ...prev, password: '' };
                       });
                     }}
+                    className={errors.password ? styles['input-error'] : ''}
                   />
                   <div
                     className={styles['show-password']}
@@ -131,14 +132,24 @@ export default function LoginPage() {
               </div>
 
               {/* remember me and forget password */}
-              <div className={styles['remember-forget']}>
+              <div
+                className={`${styles['remember-forget']} ${
+                  checkAgree ? styles['remember-forget-error'] : ''
+                } `}
+              >
                 <label>
                   <input
                     type='checkbox'
                     checked={isAgree}
-                    onChange={() => setIsAgree(!isAgree)}
+                    onChange={e => {
+                      if (e.target.checked) setCheckAgree(false);
+                      setIsAgree(!isAgree);
+                    }}
                   />
-                  <span className='text-danger' style={{ fontSize: '13px' }}>
+                  <span
+                    className={checkAgree ? 'text-danger' : ''}
+                    style={{ fontSize: '13px' }}
+                  >
                     Tôi đồng ý với{' '}
                     <Link href={'/about/terms'}>Thỏa thuận Người Dùng</Link> và{' '}
                     <Link href={'/about/privacy'}>Chính Sách Riêng Tư</Link> của

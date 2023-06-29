@@ -1,0 +1,15 @@
+.title {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  display: block;
+  margin-bottom: 8px;
+  color: #0e1724;
+  font-weight: bold;
+}
+
+.description {
+  margin-bottom: 16px;
+  color: #0e1724;
+  text-align: left;
+  font-size: 14px;
+}
