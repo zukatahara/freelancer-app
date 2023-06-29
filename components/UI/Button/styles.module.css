@@ -1,11 +1,12 @@
-.main-button{
-    line-height: 1.43;
-    padding: 8px 11px;
-   background-color: #e60278;
-    font-weight: 700;
-    border: 1px solid;
-    border-radius: 3px;
-    border-color: #e60278;
-    color: #f7f8f9;
-    font-size: 14px;
+.main-button {
+  text-decoration: none;
+  line-height: 1.43;
+  padding: 8px 11px;
+  background-color: #e60278;
+  font-weight: 700;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: #e60278;
+  color: #f7f8f9;
+  font-size: 14px;
 }
