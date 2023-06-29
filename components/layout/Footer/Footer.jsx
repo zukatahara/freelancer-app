@@ -72,7 +72,7 @@ export default function Footer() {
   return (
     <div className="container-footer">
       <div className="footer pt-3">
-        <div className="footer1">
+        <div className="footer1 py-4 px-1">
           <div className="footer1-wrapper d-flex flex-wrap row">
             <div className="footer-col col-lg-2 col-12 px-2 mb-3 pb-3">
               <div className="mb-4 d-flex justify-content-left">

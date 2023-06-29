@@ -1,6 +1,6 @@
 .container-footer{
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
     background-color: #12151b;
 }
 
@@ -10,10 +10,6 @@
     background-color: #12151b;
     min-height: 200px;
     color: #FFFFFF;
-}
-
-.footer1 {
-    padding: 32px;
 }
 
 .footer1 svg{
@@ -43,6 +39,7 @@
     color: #FFFFFF;
     font-size: 13px;
     font-weight: 450;
+    text-decoration: none;
 }
 
 .text-item a:hover {
