@@ -1,0 +1,26 @@
+.container-custom{
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    background-color: #FFFFFF;
+    height: 64px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.freelancer-logo{
+    height: 100%;
+    width: 100%;
+}
+
+.auth-btn a {
+    color: #000000;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.auth-btn a:hover{
+    color: #1772eb
+}
