@@ -212,7 +212,7 @@ export default function LoginPage() {
                       size={40}
                       style={{ marginTop: "-7px " }}
                     />
-                    <p>{errors.message}</p>
+                    <p style={{color:"#fff"}}>{errors.message}</p>
                     <span
                       className={styles["button-close"]}
                       onClick={() => setErrors({ ...errors, message: "" })}
