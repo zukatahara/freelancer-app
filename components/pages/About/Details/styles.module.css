@@ -1,0 +1,30 @@
+.content {
+  margin-bottom: 20px;
+  padding-right: 80px;
+}
+.provenance h5,
+.content h5,
+.address h5 {
+  margin-bottom: 16px !important;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #0e1724;
+  font-weight: 700;
+}
+.provenance p,
+.content p,
+.address p {
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: #0e1724;
+}
+.content p{
+    margin-bottom: 0 !important;
+
+}
+@media(max-width:768px){
+    .content {
+        
+        padding-right: unset;
+      }
+}
