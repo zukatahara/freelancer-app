@@ -14,7 +14,10 @@ const ListJob = ({ jobs }) => {
       {data.map(job => (
         <>
           <li className='col-lg-4 col-md-6 col-6'>
-            <Link href={job.href || '#'} className={styles['link']}>
+            <Link
+              href={job.href ? `/job/${job.href}` : '#'}
+              className={styles['link']}
+            >
               <GoTriangleRight
                 color='ffc24e'
                 style={{ margin: '4px 8px 0 0' }}
