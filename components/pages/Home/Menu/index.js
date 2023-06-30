@@ -27,7 +27,7 @@ export default function MenuComponent({pathname}) {
                   <Link href="#">Get Ideas</Link>
                 </li>
                 <li>
-                  <Link href="/about">About</Link>
+                  <Link href="#">About</Link>
                 </li>
                 <li>
                   <Link href="#">Resources</Link>
