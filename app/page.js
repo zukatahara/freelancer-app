@@ -15,7 +15,7 @@ export default function Home() {
       <UsedByComponent />
       <CompleteWorkComponent />
       <GoodWhat />
-      <PlacePostComponent />
+      {/* <PlacePostComponent /> */}
       <LastSectionComponent />
     </>
   );

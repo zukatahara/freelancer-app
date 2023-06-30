@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import styles from "./styles.module.css";
-import { BsFacebook, BsGoogle } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
 import {
   IoMdEyeOff,
   IoMdEye,
   IoIosWarning,
   IoIosArrowBack,
 } from "react-icons/io";
+import {FcGoogle} from 'react-icons/fc'
 import { RiErrorWarningFill } from "react-icons/ri";
 import { useState } from "react";
 import Link from "next/link";
@@ -78,12 +79,12 @@ export default function LoginPage() {
                 onClick={() => setIsForget(false)}
               />
             )}
-            <Image src="/logo/logo.png" alt="logo" width={199} height={48} />
+            <Image src="/logo/logo.png" alt="logo" width={199} height={65} style={{objectFit:"contain"}}/>
           </div>
           {isForget ? (
             <div className={styles["login-session"]}>
               <h2 className="mb-3">Tạo lại mật khẩu của bạn</h2>
-              <p className="text-center" style={{ fontSize: "14px" }}>
+              <p className="text-center" style={{ fontSize: "14px",color:"#fff" }}>
                 Nhập địa chỉ email Freelancer.com của bạn để chúng tôi có thể
                 tạo lại mật khẩu cho bạn.
               </p>
@@ -116,7 +117,7 @@ export default function LoginPage() {
                 Đăng nhập bằng Facebook
               </Link>
               <Link href={"#"} className={styles["login-gg"]}>
-                
+                <FcGoogle size={23}/>
                 Đăng nhập bằng Google
               </Link>
               <div className={styles["line-text"]}>
@@ -223,7 +224,7 @@ export default function LoginPage() {
 
                 <button type="submit">Đăng nhập</button>
               </form>
-              <div className={styles["line-text"]}>
+              <div className={styles["line-text"]}  style={{margin:"2rem 0 1rem 0"}}>
                 <div className={styles["line"]}></div>
                 <div className={styles["line"]}></div>
               </div>
