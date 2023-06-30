@@ -2,7 +2,6 @@ import MainButton from "@/components/UI/Button/MainButton";
 import React from "react";
 import style from "./styles.module.css";
 import MarginBottom from "@/components/UI/MarginBottom";
-import Image from "next/image";
 export default function LastSectionComponent() {
   return (
     <>

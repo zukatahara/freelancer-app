@@ -1,5 +1,6 @@
 export const jobCates = [
   {
+    hrefId: 'cate-software',
     icon: '/icons/cate-software.svg',
     title: 'Trang web, IT & Phần mềm',
     description: 'PHP, HTML, JavaScript, Kiến trúc phần mềm, WordPress...',
@@ -67,6 +68,7 @@ export const jobCates = [
     ],
   },
   {
+    hrefId: 'cate-mobile-pc',
     icon: '/icons/cate-mobile-pc.svg',
     title: 'Điện thoại di động & Máy tính',
     description: 'Mobile App Development, Android, iPhone, iPad, Kotlin...',
@@ -134,6 +136,7 @@ export const jobCates = [
     ],
   },
   {
+    hrefId: 'cate-content',
     icon: '/icons/cate-content.svg',
     title: 'Sáng tác & Nội dung',
     description:
@@ -202,6 +205,7 @@ export const jobCates = [
     ],
   },
   {
+    hrefId: 'cate-telecom',
     icon: '/icons/cate-telecom.svg',
     title: 'Thiết kế, Truyền thông & Kiến trúc',
     description:
@@ -270,6 +274,7 @@ export const jobCates = [
     ],
   },
   {
+    hrefId: 'cate-keyboard',
     icon: '/icons/cate-keyboard.svg',
     title: 'Nhập liệu và Hành chính',
     description:
@@ -338,6 +343,7 @@ export const jobCates = [
     ],
   },
   {
+    hrefId: 'cate-science',
     icon: '/icons/cate-science.svg',
     title: 'Khoa học & Kĩ thuật',
     description: 'AutoCAD, Kĩ thuật, CAD/CAM, Kĩ thuật điện, Điện tử...',
@@ -405,6 +411,7 @@ export const jobCates = [
     ],
   },
   {
+    hrefId: 'cate-manufacture',
     icon: '/icons/cate-manufacture.svg',
     title: 'Tìm nguồn sản phẩm & Sản xuất',
     description:
@@ -473,6 +480,7 @@ export const jobCates = [
     ],
   },
   {
+    hrefId: 'cate-marketing',
     icon: '/icons/cate-marketing.svg',
     title: 'Tiếp thị & Bán hàng',
     description:

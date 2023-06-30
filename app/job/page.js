@@ -35,6 +35,14 @@ const JobPage = () => {
     setListJob(newListJob);
   };
 
+  const handleScrollToCate = id => {
+    const element = document.getElementById(id);
+    if (element) {
+      const topOffset = element.offsetTop - 100;
+      window.scrollTo({ top: topOffset, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div id={styles['job-page']}>
       <section className={`${styles['section-view_search']}`}>
@@ -53,7 +61,12 @@ const JobPage = () => {
           <ListJob jobs={listJob} />
           <div className={`row ${listJob.length > 0 ? 'mt-5' : ''}`}>
             {jobCates.map(cate => (
-              <div className='col-lg-4 col-md-6 col-12' key={cate?.title}>
+              <div
+                className='col-lg-4 col-md-6 col-12'
+                key={cate?.hrefId}
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleScrollToCate(cate?.hrefId)}
+              >
                 <CategoryJob
                   icon={cate.icon}
                   title={cate.title}
@@ -70,7 +83,7 @@ const JobPage = () => {
           <h2 className='mb-3'>Xem tất cả các hạng mục</h2>
 
           {jobCates.map(cate => (
-            <div key={cate?.title}>
+            <div key={cate?.hrefId} id={cate?.hrefId}>
               <JobsByCate title={cate.title} jobs={cate.jobs} />
             </div>
           ))}
