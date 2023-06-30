@@ -47,4 +47,8 @@
   .swiped {
     display: block;
   }
+  .content .title {
+    margin-right: 0;
+   
+  }
 }

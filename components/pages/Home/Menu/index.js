@@ -18,20 +18,20 @@ export default function MenuComponent({pathname}) {
             <div className={style.menu}>
               <ul className={style.menu}>
                 <li>
-                  <Link href="#">Find Jobs</Link>
+                  <Link href="#">CTV casino, game bài</Link>
                 </li>
                 <li>
-                  <Link href="#">Hire Freelancers</Link>
+                  <Link href="#">CTV Thể Thao</Link>
                 </li>
                 <li>
-                  <Link href="#">Get Ideas</Link>
+                  <Link href="#">CTV khác</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="#">About</Link>
                 </li>
                 <li>
                   <Link href="#">Resources</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
