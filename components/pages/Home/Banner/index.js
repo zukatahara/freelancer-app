@@ -13,7 +13,7 @@ export default function BannerComponent() {
       ></video>
 
       <div className={style.content}>
-        <div className='container'>
+        <div className='container-custom container'>
           <div className='row'>
             <div className='col-xl-6'>
               <div className={style['content-main']}>

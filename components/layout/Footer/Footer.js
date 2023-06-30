@@ -11,7 +11,7 @@ import { PiPersonArmsSpreadFill } from "react-icons/pi";
 
 import "./footer.css";
 
-export default function Footer({pathname}) {
+export default function Footer({ pathname }) {
   const contents = [
     {
       title: "Freelancer",
@@ -79,7 +79,7 @@ export default function Footer({pathname}) {
             : "flex",
       }}
     >
-      <div className="footer pt-3">
+      <div className="footer pt-3 container-custom container">
         <div className="footer1 py-4 px-1">
           <div className="footer1-wrapper d-flex flex-wrap row">
             <div className="footer-col col-lg-2 col-12 px-2 mb-3 pb-3">

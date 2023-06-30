@@ -8,11 +8,11 @@ export default function CompleteWorkComponent() {
   return (
     <>
       <MarginBottom />
-      <div className="container">
+      <div className="container-custom container">
         <BigTitleComponent title="Giới thiệu về trang web, cách thức hoạt động" />
       </div>
       <MarginBottom />
-      <div className="container">
+      <div className="container-custom container">
         <div className="row">
           <CardComponent
             imageUrl="https://www.f-cdn.com/assets/main/en/assets/illustrations/project/post-a-project.svg"
