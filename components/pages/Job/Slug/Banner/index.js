@@ -1,10 +1,10 @@
-import { GrClose } from 'react-icons/gr';
+import { VscClose } from 'react-icons/vsc';
 import Link from 'next/link';
 import styles from './styles.module.css';
 const BannerForCateJobs = ({ setIsOpenBanner }) => {
   return (
     <section className={styles['banner']}>
-      <div className='container'>
+      <div className='container-xl'>
         <div className={`${styles['banner-main']} row`}>
           <div className='col-7'>
             <h2>Cần thuê một freelancer cho công việc này?</h2>
@@ -23,10 +23,10 @@ const BannerForCateJobs = ({ setIsOpenBanner }) => {
           </div>
         </div>
       </div>
-      <GrClose
-        size={25}
+      <VscClose
+        size={32}
         className={styles['btn-close']}
-        color='red'
+        color='#f7f7f7'
         onClick={() => setIsOpenBanner(false)}
       />
     </section>

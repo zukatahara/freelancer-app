@@ -165,5 +165,46 @@
 /* -------------- */
 .online-check input{
     margin-bottom: 0px;
-    margin-right: 3px;
+    margin-right: 4px;
+    border: solid 1px #727374;
+}
+
+.online-check label {
+    font-size: 14px;
+}
+
+
+/* ----------------- */
+
+
+.star-rate {
+    visibility:hidden;
+    font-size:22px;
+    cursor:pointer;
+    color: #f77d0e;
+    margin-right: 5px;
+    line-height: 17px;
+}
+.star-rate:before {
+   content: "\2605";
+   position: absolute;
+   visibility:visible;
+}
+.star-rate:checked:before {
+   content: "\2606";
+   position: absolute;
+   color: #b6b6b6;
+}
+
+.rating{
+}
+
+.rating button{
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.rating svg {
+    color: rgba(255, 0, 0, 0.671);
+    font-size: 17px;
 }

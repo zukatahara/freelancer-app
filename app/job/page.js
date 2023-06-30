@@ -46,7 +46,7 @@ const JobPage = () => {
   return (
     <div id={styles['job-page']}>
       <section className={`${styles['section-view_search']}`}>
-        <div className='container'>
+        <div className='container-xl'>
           <Breadcrumb items={itemsBreadcrumb} />
           <h1>Xem theo Hạng mục</h1>
           <div class={`${styles['form-group']} ${styles['has-search']}`}>
@@ -79,7 +79,7 @@ const JobPage = () => {
       </section>
 
       <section className={`${styles['section-view_all']} `}>
-        <div className='container'>
+        <div className='container-xl'>
           <h2 className='mb-3'>Xem tất cả các hạng mục</h2>
 
           {jobCates.map(cate => (
