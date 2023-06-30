@@ -2,7 +2,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { AiOutlineClose } from "react-icons/ai";
-import { BiSearch } from "react-icons/bi";
+import { BiSearch, BiSolidMinusCircle } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
 
 export default function SkillFilter() {
@@ -116,14 +116,44 @@ export default function SkillFilter() {
         </select>
       </div>
 
-      <div>
+      <div className={styles["rating"]}>
         <p className={styles["filter-type"]}>Phân hạng</p>
+        <div>
+          <button>
+            <BiSolidMinusCircle />
+          </button>
+          <input
+            className={styles["star-rate"]}
+            type="checkbox"
+            title="bookmark page"
+          />
+          <input
+            className={styles["star-rate"]}
+            type="checkbox"
+            title="bookmark page"
+          />
+          <input
+            className={styles["star-rate"]}
+            type="checkbox"
+            title="bookmark page"
+          />
+          <input
+            className={styles["star-rate"]}
+            type="checkbox"
+            title="bookmark page"
+          />
+          <input
+            className={styles["star-rate"]}
+            type="checkbox"
+            title="bookmark page"
+          />
+        </div>
       </div>
 
       <div className={styles["online-check"]}>
         <p className={styles["filter-type"]}>Trực tuyến</p>
         <label class="checkbox">
-          <input type="checkbox"></input>
+          <input className="form-check-input" type="checkbox"></input>
           Chỉ những freelancer trực tuyến
           <br></br>
           (để trò chuyện trực tuyến)
