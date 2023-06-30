@@ -1,0 +1,43 @@
+.articles {
+  padding-bottom: 24px;
+}
+.articles h3 {
+  margin-bottom: 20px !important;
+  color: #0e1724;
+  font-size: 1.5rem;
+  line-height: 1.33;
+  font-weight: 700;
+}
+.banner-section {
+  background: url(https://www.f-cdn.com/assets/img/community/BG1-0fb983c1.jpg);
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+}
+.banner-content {
+  text-align: center;
+}
+.banner-content h1 {
+  margin-bottom: 0;
+  font-size: 2.5625rem;
+  line-height: 1.17;
+  color: #f7f7f7;
+  font-weight: 700;
+}
+
+.banner-content p {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #f7f7f7;
+  font-weight: 500;
+}
+.main-content {
+  padding: 24px 0;
+}
+@media (max-width: 767px) {
+  .banner-content h1 {
+    font-size: 2.4rem;
+  }
+}

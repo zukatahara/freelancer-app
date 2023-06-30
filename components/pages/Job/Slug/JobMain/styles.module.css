@@ -1,0 +1,108 @@
+.section-left,
+.section-right {
+  background-color: #fff;
+  color: #0e1724;
+  font-size: 14px;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 8%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+  border-radius: 0;
+  background: #fff;
+}
+.section-left h5 {
+  margin-bottom: 16px;
+}
+
+.section-content {
+  padding: 24px !important;
+}
+
+.h5-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.filter-item-checkbox input[type='checkbox'] {
+  -webkit-appearance: none;
+  margin-top: 3px;
+  margin-right: 8px;
+  vertical-align: top;
+  background: #fff;
+  border: 1px solid #29b2fe;
+  height: 16px;
+  width: 16px;
+}
+
+.filter-item-checkbox input[type='checkbox']:checked {
+  background: #327dff;
+  outline: none;
+  border: 1px solid rgba(50, 125, 255, 1);
+}
+
+.filter-item-checkbox input[type='checkbox']:after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  bottom: 4px;
+  left: 5px;
+  width: 5px;
+  height: 10px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -webkit-transform: rotate(45deg);
+}
+
+.filter-input_number {
+  height: 36px;
+  padding: 0 12px;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  background: #fff;
+  border: 1px solid #bec0c2;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px transparent;
+  color: #0e1724;
+  display: inline-block;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  width: 100%;
+}
+
+.filter-input_number:focus {
+  border-color: #139ff0;
+  box-shadow: 0 0 0 1px #139ff0;
+  color: #0e1724;
+}
+
+.filter-input_number:focus-visible {
+  outline: none;
+}
+
+.filter-item-checkbox input[type='radio'] {
+  -webkit-appearance: none;
+  margin-top: 3px;
+  margin-right: 8px;
+  vertical-align: top;
+  background: #fff;
+  border: 1px solid #29b2fe;
+  height: 16px;
+  width: 16px;
+}
+
+.filter-item-checkbox input[type='radio']:checked {
+  background: #327dff;
+  outline: none;
+  border: 1px solid rgba(50, 125, 255, 1);
+}
+
+.filter-item-checkbox input[type='radio']:after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  bottom: 4px;
+  left: 5px;
+  width: 5px;
+  height: 10px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -webkit-transform: rotate(45deg);
+  border-radius: 50%;
+}
