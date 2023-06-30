@@ -12,6 +12,8 @@ export const metadata = {
 
 import { usePathname } from "next/navigation";
 import MenuComponent from "@/components/pages/Home/Menu";
+import { Suspense } from "react";
+import Loading from "./signup/loading";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -19,8 +21,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Header pathname={pathname} />
-        <MenuComponent pathname={pathname}/>
-        {children}
+        <MenuComponent pathname={pathname} />
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer pathname={pathname} />
       </body>
     </html>

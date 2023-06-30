@@ -37,7 +37,7 @@
   top: 30%;
   left: 8%;
   cursor: pointer;
-  color:#fff
+  color: #fff;
 }
 
 .login-session > h2 {
@@ -113,9 +113,19 @@
   border: 1px solid #bcc5d3;
   border-radius: 4px;
   height: 46px;
-
+  background-color: #fff;
   font-size: 14px;
   width: 100%;
+}
+.login-form input:autofill {
+  background: #fff;
+  background-color: #fff;
+}
+
+.login-form input:-webkit-autofill {
+  background: #fff;
+
+  background-color: #fff;
 }
 
 .login-form input:focus-visible {
@@ -255,12 +265,11 @@
     width: 100%;
   }
 }
-.remember-forget input[type='checkbox']{
-  background-color:white;
+.remember-forget input[type="checkbox"] {
+  background-color: white;
   border: 0;
 }
-.remember-forget input[type='checkbox']:checked {
+.remember-forget input[type="checkbox"]:checked {
   background: #ff9900;
   outline: none;
 }
-

@@ -9,7 +9,7 @@ export default function GoodWhat() {
         <>
             <MarginBottom />
             <div className='container'>
-                <BigTitleComponent title="Có gì hay" />
+                <BigTitleComponent title="Giá tiền của từng level 1, 2, 3 và giá của các bài GP" />
             </div>
             <MarginBottom />
             <div className='container'>
