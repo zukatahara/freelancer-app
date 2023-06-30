@@ -4,6 +4,8 @@ import style from "./style.module.css";
 import Image from "next/image";
 import DividerComponent from "@/components/UI/Divider";
 import MarginBottom from "@/components/UI/MarginBottom";
+import CardComponentOfAbout from "@/components/pages/About/Card";
+import DetailsComponentOfAboutPage from "@/components/pages/About/Details";
 export default function AboutPage() {
   return (
     <>
@@ -85,12 +87,26 @@ export default function AboutPage() {
           </div>
         </div>
 
-
         <DividerComponent />
         <MarginBottom />
 
         <div className={style["link-image"]}>
-          <p>saskdjhfkj</p>
+          <div className="container-custom container">
+            <div className="row">
+              <CardComponentOfAbout />
+              <CardComponentOfAbout />
+              <CardComponentOfAbout />
+            </div>
+          </div>
+          <DividerComponent />
+          <MarginBottom />
+        </div>
+        <div className={style.details}>
+          <div className="container-custom container">
+            <div className="row">
+              <DetailsComponentOfAboutPage />
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -1,10 +1,18 @@
 import React from "react";
 import style from "./style.module.css";
 import Link from "next/link";
-export default function MenuComponent() {
+export default function MenuComponent({pathname}) {
   return (
     <>
-      <div className="col-12">
+    <div
+    style={{
+      display:
+        pathname.includes("login") || pathname.includes("signup")
+          ? "none"
+          : "block",
+    }}
+    >
+ <div className="col-12">
         <div className={style.box}>
           <div className="container-custom container">
             <div className={style.menu}>
@@ -29,6 +37,8 @@ export default function MenuComponent() {
           </div>
         </div>
       </div>
+    </div>
+     
     </>
   );
 }

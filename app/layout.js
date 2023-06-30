@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Header pathname={pathname} />
-        <MenuComponent />
+        <MenuComponent pathname={pathname}/>
         {children}
         <Footer pathname={pathname} />
       </body>
