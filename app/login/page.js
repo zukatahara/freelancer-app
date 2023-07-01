@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import styles from "./styles.module.css";
 import { BsFacebook } from "react-icons/bs";
@@ -15,6 +14,8 @@ import { useContext, useState } from "react";
 import Link from "next/link";
 import * as Yup from "yup";
 import { AuthContext } from "@/context/AuthContext";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const validationFormLoginSchema = Yup.object().shape({
   username: Yup.string().required("Hãy nhập tên người dùng hoặc email"),
@@ -26,13 +27,12 @@ const validationEmailSchema = Yup.object().shape({
 });
 
 export default function LoginPage() {
+  const router = useRouter();
   const { login } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(false);
   const [username, setUsername] = useState("");
-  console.log("username:", username);
   const [password, setPassword] = useState("");
-  console.log("password:", password);
   const [emailForGet, setEmailForget] = useState("");
   const [errors, setErrors] = useState("");
   const [isForget, setIsForget] = useState(false);
@@ -45,11 +45,15 @@ export default function LoginPage() {
         { username, password },
         { abortEarly: false }
       );
-      login(username, password);
+      const res = await login(username, password);
+      if (!res?.status) {
+        toast.success("okee");
+      } else {
+        router.push("/");
+      }
 
       // Perform login
     } catch (err) {
-      console.log(err.inner);
       const validationErrors = {};
       err.inner.forEach((error) => {
         validationErrors[error.path] = error.message;

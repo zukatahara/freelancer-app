@@ -7,3 +7,7 @@ export async function AuthLogin(username, password) {
   });
   return res?.data;
 }
+export async function getLoggedUser() {
+  const res = await getInstanceCheckAuth().post("/logged");
+  return res?.data;
+}

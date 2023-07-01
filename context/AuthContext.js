@@ -1,9 +1,8 @@
 "use client";
 
-import { AuthLogin } from "@/api/auth";
+import { AuthLogin, getLoggedUser } from "@/api/auth";
 import { createContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Elsie_Swash_Caps } from "next/font/google";
 
 const initialValue = {
   user: {},
@@ -15,34 +14,52 @@ export const AuthContext = createContext(initialValue);
 
 const AuthProvider = ({ children }) => {
   const router = useRouter();
-  console.log(`vao day`);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
   const [token, setToken] = useState("");
   useEffect(() => {
     const accessToken = JSON.stringify(localStorage.getItem("accessToken"));
-
     if (accessToken == "null") {
       router.push("/login");
       return;
     }
     setToken(accessToken);
   }, []);
-  const login = async (username,password) => {
-    console.log("🚀 ~ file: AuthContext.js:32 ~ login ~ username,password:", username,password)
+  const login = async (username, password) => {
     const res = await AuthLogin(username, password);
+    if (res?.status === 1) {
+      setUser(res);
+      setToken(res?.jwtToken);
+      setLoading(false);
+      localStorage.setItem("accessToken", res?.jwtToken);
+    }
 
-    setUser(res?.data);
-    setToken(res?.accessToken);
-    setLoading(false);
-    localStorage.setItem("accessToken", res?.accessToken);
-    
+    return res;
+  };
+  const loggedUser = async () => {
+    // const res = await getLoggedUser();
+    // return res;
+
+    setUser({ a: "a" });
+    setToken("123avc");
+    localStorage.setItem("accessToken", "123avc");
+
+    return;
+  };
+  const logout = async () => {
+    localStorage.removeItem("accessToken");
+    setUser({});
+    setToken("");
+
+    return;
   };
   const AuthContextData = {
     loading,
     user,
     token,
     login,
+    logout,
+    loggedUser,
   };
   return (
     <AuthContext.Provider value={AuthContextData}>

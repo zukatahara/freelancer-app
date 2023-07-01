@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./header.css";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function Header({ pathname }) {
+  const router = useRouter();
+  const { user, logout } = useContext(AuthContext);
+  //
+  const handleLogout = async () => {
+    await logout();
+    router.push("/");
+  };
   return (
     <div
       className="header-container"
@@ -23,13 +32,24 @@ export default function Header({ pathname }) {
         </div>
 
         <div className="d-flex align-items-center">
-          <div className="p-3 auth-btn">
-            <Link href="/login">Đăng Nhập</Link>
-          </div>
+          {Object.keys(user).length > 0 ? (
+            <>
+              <div>
+                Xin chào {user?.firstName} {user?.lastName}
+              </div>
+              <div onClick={handleLogout}>Logout</div>
+            </>
+          ) : (
+            <>
+              <div className="p-3 auth-btn">
+                <Link href="/login">Đăng Nhập</Link>
+              </div>
 
-          <div className="p-3 auth-btn">
-            <Link href="/signup">Đăng Ký</Link>
-          </div>
+              <div className="p-3 auth-btn">
+                <Link href="/signup">Đăng Ký</Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
