@@ -12,16 +12,19 @@ export const metadata = {
 
 import { usePathname } from "next/navigation";
 import MenuComponent from "@/components/pages/Home/Menu";
+import AuthProvider from "@/context/AuthContext";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header pathname={pathname} />
-        <MenuComponent pathname={pathname} />
-        {children}
-        <Footer pathname={pathname} />
+        <AuthProvider>
+          <Header pathname={pathname} />
+          <MenuComponent pathname={pathname} />
+          {children}
+          <Footer pathname={pathname} />
+        </AuthProvider>
       </body>
     </html>
   );

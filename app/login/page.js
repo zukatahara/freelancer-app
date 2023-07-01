@@ -11,9 +11,10 @@ import {
 } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { RiErrorWarningFill } from "react-icons/ri";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Link from "next/link";
 import * as Yup from "yup";
+import { AuthContext } from "@/context/AuthContext";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("Hãy nhập tên người dùng hoặc email"),
@@ -22,21 +23,28 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function LoginPage() {
+  const { login } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(false);
   const [username, setUsername] = useState("");
+  console.log("username:", username);
   const [password, setPassword] = useState("");
+  console.log("password:", password);
   const [emailForGet, setEmailForget] = useState("");
   const [errors, setErrors] = useState("");
   const [isForget, setIsForget] = useState(false);
+  //
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      console.log(`vao day nhaaaa`);
       await validationSchema.validate(
         { username, password },
         { abortEarly: false }
       );
+      login(username, password);
+
       // Perform login
     } catch (err) {
       const validationErrors = {};
