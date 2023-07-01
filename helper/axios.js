@@ -4,12 +4,15 @@ const token =
   typeof window !== "undefined"
     ? JSON.stringify(localStorage.getItem("accessToken"))
     : null;
-// const reLogin = () => {
-//   localStorage.getItem("accessToken");
-// };
+const reLogin = () => {
+  localStorage.removeItem("accessToken");
+  window.history.pushState({}, "", "/login");
+  window.location.reload();
+};
 export const getInstance = () => {
-  console.log("🚀 ~ file: axios.js:4 ~ token:", token);
-
+  if (!token) {
+    reLogin();
+  }
   const instance = axios.create({
     baseURL: "http://localhost:8000/api",
     headers: {

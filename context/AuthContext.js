@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthLogin, getLoggedUser } from "@/api/auth";
+import { AuthLogin, getLoggedUser,authSignup } from "@/api/auth";
 import { createContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -22,6 +22,8 @@ const AuthProvider = ({ children }) => {
     if (accessToken == "null") {
       router.push("/login");
       return;
+    } else {
+      loggedUser();
     }
     setToken(accessToken);
   }, []);
@@ -36,11 +38,15 @@ const AuthProvider = ({ children }) => {
 
     return res;
   };
+  const signup = async (data) =>{
+    const res = await authSignup(data);
+    console.log(`res`,res)
+  }
   const loggedUser = async () => {
     // const res = await getLoggedUser();
     // return res;
 
-    setUser({ a: "a" });
+    setUser({ firstName: "a", lastName: "b" });
     setToken("123avc");
     localStorage.setItem("accessToken", "123avc");
 
@@ -58,6 +64,7 @@ const AuthProvider = ({ children }) => {
     user,
     token,
     login,
+    signup,
     logout,
     loggedUser,
   };
