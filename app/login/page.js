@@ -16,9 +16,12 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { AuthContext } from "@/context/AuthContext";
 
-const validationSchema = Yup.object().shape({
+const validationFormLoginSchema = Yup.object().shape({
   username: Yup.string().required("Hãy nhập tên người dùng hoặc email"),
   password: Yup.string().required("Hãy nhập mật khẩu"),
+});
+
+const validationEmailSchema = Yup.object().shape({
   email: Yup.string().required("Hãy nhập địa chỉ email của bạn."),
 });
 
@@ -38,8 +41,7 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      console.log(`vao day nhaaaa`);
-      await validationSchema.validate(
+      await validationFormLoginSchema.validate(
         { username, password },
         { abortEarly: false }
       );
@@ -47,6 +49,7 @@ export default function LoginPage() {
 
       // Perform login
     } catch (err) {
+      console.log(err.inner);
       const validationErrors = {};
       err.inner.forEach((error) => {
         validationErrors[error.path] = error.message;
@@ -60,7 +63,7 @@ export default function LoginPage() {
   const handleForget = async (e) => {
     e.preventDefault();
     try {
-      await validationSchema.validate(
+      await validationEmailSchema.validate(
         { email: emailForGet },
         { abortEarly: false }
       );
