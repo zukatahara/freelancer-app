@@ -14,9 +14,9 @@ import { useContext, useState } from "react";
 import Link from "next/link";
 import * as Yup from "yup";
 import { AuthContext } from "@/context/AuthContext";
-import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-
+import { toast } from 'react-toastify';
+import { useCheckAuth } from "@/utils/useCheckAuth";
 const validationFormLoginSchema = Yup.object().shape({
   username: Yup.string().required("Hãy nhập tên người dùng hoặc email"),
   password: Yup.string().required("Hãy nhập mật khẩu"),
@@ -41,13 +41,14 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await validationFormLoginSchema.validate(
-        { username, password },
-        { abortEarly: false }
-      );
+      // await validationFormLoginSchema.validate(
+      //   { username, password },
+      //   { abortEarly: false }
+      // );
       const res = await login(username, password);
+      console.log('res:', res)
       if (!res?.status) {
-        toast.success("okee");
+        toast.warning(res?.message);
       } else {
         router.push("/");
       }
@@ -81,7 +82,7 @@ export default function LoginPage() {
       });
     }
   };
-
+  useCheckAuth();
   return (
     <div className={styles["login-page"]}>
       <div className={styles["login-main"]}>
@@ -158,9 +159,9 @@ export default function LoginPage() {
                     placeholder="Email hoặc tên đăng nhập"
                     onChange={(e) => {
                       setUsername(e.target.value);
-                      setErrors((prev) => {
-                        return { ...prev, username: "" };
-                      });
+                      // setErrors((prev) => {
+                      //   return { ...prev, username: "" };
+                      // });
                     }}
                     className={errors.username ? styles["input-error"] : ""}
                   />
@@ -182,9 +183,9 @@ export default function LoginPage() {
                       placeholder="Mật khẩu"
                       onChange={(e) => {
                         setPassword(e.target.value);
-                        setErrors((prev) => {
-                          return { ...prev, password: "" };
-                        });
+                        // setErrors((prev) => {
+                        //   return { ...prev, password: "" };
+                        // });
                       }}
                       className={errors.password ? styles["input-error"] : ""}
                     />

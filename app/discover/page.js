@@ -1,7 +1,10 @@
+"use client";
 import React from "react";
 import style from "./styles.module.css";
 import Image from "next/image";
+import { useCheckAuth } from "@/utils/useCheckAuth";
 export default function DiscoverPage() {
+  useCheckAuth();
   return (
     <>
       <div className={style["banner-section"]}>

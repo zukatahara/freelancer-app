@@ -9,6 +9,7 @@ import { useState } from "react";
 import Link from "next/link";
 import * as Yup from "yup";
 import { FcGoogle } from "react-icons/fc";
+import { useCheckAuth } from "@/utils/useCheckAuth";
 
 const validationSchema = Yup.object().shape({
   password: Yup.string()
@@ -46,7 +47,7 @@ export default function LoginPage() {
       setErrors(validationErrors);
     }
   };
-
+  useCheckAuth()
   return (
     <div className={styles["login-page"]}>
       <div className={styles["login-main"]}>

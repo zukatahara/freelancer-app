@@ -142,7 +142,9 @@ ul li {
 .custom-swiper .swiper-wrapper {
   margin: 0 42px;
 }
-
+.pl-0{
+  padding-left: 0 !important;
+}
 .custom-swiper .swiper-button-next:after,
 .custom-swiper .swiper-button-prev:after {
   font-size: 18px;
@@ -154,6 +156,7 @@ ul li {
     color-scheme: dark;
   }
 }
+
 @media (min-width: 1400px) {
   .container,
   .container-lg,
@@ -171,7 +174,7 @@ ul li {
 }
 @media (min-width: 576px) {
   .container {
-    max-width: 100%;
+    max-width: 1200px;
   }
 }
 @media (max-width: 992px) and (min-width: 576px) {

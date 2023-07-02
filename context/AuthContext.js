@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthLogin, getLoggedUser,authSignup } from "@/api/auth";
+import { AuthLogin, getLoggedUser, authSignup } from "@/api/auth";
 import { createContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -19,13 +19,10 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     const accessToken = JSON.stringify(localStorage.getItem("accessToken"));
-    if (accessToken == "null") {
-      router.push("/login");
-      return;
-    } else {
+    console.log("🚀 ~ file: AuthContext.js:22 ~ useEffect ~ accessToken:", accessToken)
+    if (accessToken != 'null') {
       loggedUser();
     }
-    setToken(accessToken);
   }, []);
   const login = async (username, password) => {
     const res = await AuthLogin(username, password);
@@ -38,10 +35,10 @@ const AuthProvider = ({ children }) => {
 
     return res;
   };
-  const signup = async (data) =>{
+  const signup = async (data) => {
     const res = await authSignup(data);
-    console.log(`res`,res)
-  }
+    console.log(`res`, res);
+  };
   const loggedUser = async () => {
     // const res = await getLoggedUser();
     // return res;

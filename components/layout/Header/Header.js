@@ -22,8 +22,11 @@ export default function Header({ pathname }) {
             : "flex",
       }}
     >
-      <div className="header d-flex justify-content-between">
-        <div className="d-flex align-items-center p-3">
+      <div className="header d-flex justify-content-between container-custom container">
+        <div
+          className="d-flex align-items-center p-3 "
+          style={{ paddingLeft: '0 !important' }}
+        >
           <img
             className="freelancer-logo"
             src="/freelancer-logo.svg"
