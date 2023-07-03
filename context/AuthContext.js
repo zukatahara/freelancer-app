@@ -1,13 +1,18 @@
 "use client";
 
-import { AuthLogin, getLoggedUser, authSignup } from "@/api/auth";
+import {
+  AuthLogin,
+  getLoggedUser,
+  authSignup,
+  signInWithGoogle,
+} from "@/api/auth";
 import { createContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const initialValue = {
   user: {},
   accessToken: "",
-  loading: true,
 };
 
 export const AuthContext = createContext(initialValue);
@@ -19,14 +24,13 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     const accessToken = JSON.stringify(localStorage.getItem("accessToken"));
-    console.log("🚀 ~ file: AuthContext.js:22 ~ useEffect ~ accessToken:", accessToken)
-    if (accessToken != 'null') {
-      loggedUser();
+    if (accessToken != "null") {
+      // loggedUser();
     }
   }, []);
   const login = async (username, password) => {
     const res = await AuthLogin(username, password);
-    if (res?.status === 1) {
+    if (res?.success) {
       setUser(res);
       setToken(res?.jwtToken);
       setLoading(false);
@@ -37,24 +41,48 @@ const AuthProvider = ({ children }) => {
   };
   const signup = async (data) => {
     const res = await authSignup(data);
-    console.log(`res`, res);
+    if (res?.success) {
+      setUser(res);
+      setToken(res?.jwtToken);
+      localStorage.setItem("accessToken", res?.jwtToken);
+    }
+    return res;
   };
   const loggedUser = async () => {
-    // const res = await getLoggedUser();
-    // return res;
+    const res = await getLoggedUser();
+    setUser(res);
+    return res;
 
-    setUser({ firstName: "a", lastName: "b" });
-    setToken("123avc");
-    localStorage.setItem("accessToken", "123avc");
+    // setUser({ firstName: "a", lastName: "b" });
+    // setToken("123avc");
+    // localStorage.setItem("accessToken", "123avc");
 
     return;
   };
+
   const logout = async () => {
     localStorage.removeItem("accessToken");
     setUser({});
     setToken("");
-
     return;
+  };
+  //
+  const loginWithGoogle = async (idToken) => {
+    try {
+      const res = await signInWithGoogle({
+        tokenId: idToken,
+      });
+      if (res.success) {
+        setUser(res);
+        setToken(res?.jwtToken);
+        localStorage.setItem("accessToken", res?.jwtToken);
+        router.push("/");
+      }
+      return res;
+    } catch (error) {
+      console.log(error);
+      toast.error("Vui lòng thử lại");
+    }
   };
   const AuthContextData = {
     loading,
@@ -64,6 +92,7 @@ const AuthProvider = ({ children }) => {
     signup,
     logout,
     loggedUser,
+    loginWithGoogle,
   };
   return (
     <AuthContext.Provider value={AuthContextData}>

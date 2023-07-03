@@ -5,41 +5,64 @@ import styles from "./styles.module.css";
 import { BsFacebook } from "react-icons/bs";
 import { IoMdEyeOff, IoMdEye, IoIosWarning } from "react-icons/io";
 import { RiErrorWarningFill } from "react-icons/ri";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Link from "next/link";
 import * as Yup from "yup";
 import { FcGoogle } from "react-icons/fc";
 import { useCheckAuth } from "@/utils/useCheckAuth";
+import { AuthContext } from "@/context/AuthContext";
+import { useGoogleLogin } from "@react-oauth/google";
 
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 const validationSchema = Yup.object().shape({
-  password: Yup.string()
-    .min(6, "Phải dài tối thiểu 6 ký tự")
-    .required("Hãy nhập mật khẩu"),
-  email: Yup.string()
-    .email("Hãy nhập địa chỉ email hợp lệ")
-    .required("Hãy nhập địa chỉ email"),
+  firstName: Yup.string().required(" "),
+  lastName: Yup.string().required(" "),
+  password: Yup.string().min(6, "Phải dài tối thiểu 6 ký tự").required(" "),
+  username: Yup.string()
+  .required("Hãy nhập địa chỉ email"),
 });
 
-export default function LoginPage() {
+export default function SignupPage() {
+  const router = useRouter();
+  const { signup, loginWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState("");
   const [isAgree, setIsAgree] = useState(false);
   const [checkAgree, setCheckAgree] = useState(false);
-
-  const handleLogin = async (e) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
       if (!isAgree) {
-        setCheckAgree(true);
+        return setCheckAgree(true);
       }
       await validationSchema.validate(
-        { email, password },
+        { username, password, firstName,lastName },
         { abortEarly: false }
       );
       // Perform login
+      //Logic here
+      const data = {
+        firstName,
+        lastName,
+        username,
+        password,
+      };
+      const res = await signup(data);
+      if (!res?.success) {
+        toast.warning(res?.message);
+        return;
+      }
+      toast.success(res.message);
+      // setTimeout(() => {
+      //   router.push("/");
+      // }, 8000);
     } catch (err) {
+      console.log("err:", err);
       const validationErrors = {};
       err.inner.forEach((error) => {
         validationErrors[error.path] = error.message;
@@ -47,7 +70,16 @@ export default function LoginPage() {
       setErrors(validationErrors);
     }
   };
-  useCheckAuth()
+  const handleLoginFacebook = () => {
+    toast.warning("Tính năng đang bảo trì!");
+  };
+  const loginGoogle = useGoogleLogin({
+    scope:
+      "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid",
+    onSuccess: (token) => loginWithGoogle(token.access_token),
+    overrideScope: true,
+  });
+  useCheckAuth();
   return (
     <div className={styles["login-page"]}>
       <div className={styles["login-main"]}>
@@ -64,14 +96,22 @@ export default function LoginPage() {
 
           <div className={styles["login-session"]}>
             <h2>Đăng ký</h2>
-            <Link href={"#"} className={styles["login-fb"]}>
+            <div
+              className={styles["login-fb"]}
+              onClick={handleLoginFacebook}
+              style={{ cursor: "pointer" }}
+            >
               <BsFacebook size={23} />
-              Tiếp tục với Facebook
-            </Link>
-            <Link href={"#"} className={styles["login-gg"]}>
+              Đăng nhập bằng Facebook
+            </div>
+            <div
+              className={styles["login-gg"]}
+              onClick={() => loginGoogle()}
+              style={{ cursor: "pointer" }}
+            >
               <FcGoogle size={23} />
               Đăng nhập bằng Google
-            </Link>
+            </div>
             <div className={styles["line-text"]}>
               <div className={styles["line"]}></div>
               <div className={styles["text"]}>HOẶC</div>
@@ -79,28 +119,57 @@ export default function LoginPage() {
             </div>
 
             {/* form login  */}
-            <form className={styles["login-form"]} onSubmit={handleLogin}>
+            <form className={styles["login-form"]} onSubmit={handleSignup}>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Họ"
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                    setErrors((prev) => {
+                      return { ...prev, firstName: "" };
+                    });
+                  }}
+                  className={errors.firstName ? styles["input-error"] : ""}
+                />
+                <p className={styles["input-validate-error"]}></p>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Tên"
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                    setErrors((prev) => {
+                      return { ...prev, lastName: "" };
+                    });
+                  }}
+                  className={errors.lastName ? styles["input-error"] : ""}
+
+                />
+                <p className={styles["input-validate-error"]}></p>
+              </div>
               <div>
                 <input
                   type="text"
                   placeholder="Email hoặc tên đăng nhập"
                   onChange={(e) => {
-                    setEmail(e.target.value);
+                    setUsername(e.target.value);
                     setErrors((prev) => {
-                      return { ...prev, email: "" };
+                      return { ...prev, username: "" };
                     });
                   }}
-                  className={errors.email ? styles["input-error"] : ""}
+                  className={errors.username ? styles["input-error"] : ""}
                 />
 
                 <p
                   className={styles["input-validate-error"]}
                   style={{
-                    visibility: errors.email ? "visible" : "hidden",
+                    visibility: errors.username ? "visible" : "hidden",
                   }}
                 >
-                  <IoIosWarning style={{ marginRight: "7px" }} />
-                  {errors.email}
+                  {/* <IoIosWarning style={{ marginRight: "7px" }} />
+                  {errors.email} */}
                 </p>
               </div>
               <div>
@@ -133,7 +202,7 @@ export default function LoginPage() {
                     visibility: errors.password ? "visible" : "hidden",
                   }}
                 >
-                  <IoIosWarning style={{ marginRight: "7px" }} />
+                  {/* <IoIosWarning style={{ marginRight: "7px" }} /> */}
                   {errors.password}
                 </p>
               </div>

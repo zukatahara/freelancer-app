@@ -29,3 +29,29 @@
 .auth-btn a:hover {
   color: #1772eb;
 }
+.header-user{
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.header-user p{
+  margin-bottom: 0;
+}
+.header-user .header-user-options {
+  top:120%;
+  position: absolute;
+  min-width: 250px;
+  box-shadow: 0 0  3px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  padding: 24px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: default;
+  z-index: 99999;
+
+}
+.header-user-options p{
+cursor: pointer;
+margin-bottom: 0;
+}

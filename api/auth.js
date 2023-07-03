@@ -15,3 +15,9 @@ export async function getLoggedUser() {
   const res = await getInstanceCheckAuth().post("/logged");
   return res?.data;
 }
+export const signInWithGoogle = async ({ tokenId }) => {
+  const res = await getInstanceCheckAuth().post("/loginWithGoogle", {
+    tokenId,
+  });
+  return res?.data;
+};

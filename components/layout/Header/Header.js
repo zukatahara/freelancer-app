@@ -1,16 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./header.css";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { AiFillCaretDown } from "react-icons/ai";
 
 export default function Header({ pathname }) {
+  const [showDivUserOptions, setShowDivUserOptions] = useState(false);
   const router = useRouter();
   const { user, logout } = useContext(AuthContext);
   //
   const handleLogout = async () => {
     await logout();
     router.push("/");
+  };
+  //
+  const handleShowDivUserOptions = () => {
+    console.log(`vao dau`)
+    setShowDivUserOptions(!showDivUserOptions);
   };
   return (
     <div
@@ -25,7 +32,7 @@ export default function Header({ pathname }) {
       <div className="header d-flex justify-content-between container-custom container">
         <div
           className="d-flex align-items-center p-3 "
-          style={{ paddingLeft: '0 !important' }}
+          style={{ paddingLeft: "0 !important" }}
         >
           <img
             className="freelancer-logo"
@@ -35,12 +42,17 @@ export default function Header({ pathname }) {
         </div>
 
         <div className="d-flex align-items-center">
-          {Object.keys(user).length > 0 ? (
+          {Object.keys(user).length ? (
             <>
-              <div>
-                Xin chào {user?.firstName} {user?.lastName}
+              <div className="header-user" >
+               <p onClick={handleShowDivUserOptions}>Xin chào {user?.firstName} {user?.lastName} <AiFillCaretDown /></p> 
+                <div
+                  className="header-user-options"
+                  style={{ display: showDivUserOptions ? "block" : "none" }}
+                >
+                  <p onClick={handleLogout}>Logout</p>
+                </div>
               </div>
-              <div onClick={handleLogout}>Logout</div>
             </>
           ) : (
             <>

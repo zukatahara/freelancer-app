@@ -137,12 +137,15 @@ ul {
 ul li {
   list-style: none;
 }
-
+.Toastify {
+  position: absolute;
+  z-index: 999999;
+}
 /* swiper in usedBy */
 .custom-swiper .swiper-wrapper {
   margin: 0 42px;
 }
-.pl-0{
+.pl-0 {
   padding-left: 0 !important;
 }
 .custom-swiper .swiper-button-next:after,

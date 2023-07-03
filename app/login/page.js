@@ -15,20 +15,20 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { useCheckAuth } from "@/utils/useCheckAuth";
+import { useGoogleLogin } from "@react-oauth/google";
 const validationFormLoginSchema = Yup.object().shape({
   username: Yup.string().required("Hãy nhập tên người dùng hoặc email"),
   password: Yup.string().required("Hãy nhập mật khẩu"),
 });
-
 const validationEmailSchema = Yup.object().shape({
   email: Yup.string().required("Hãy nhập địa chỉ email của bạn."),
 });
 
 export default function LoginPage() {
+  const { login, loginWithGoogle } = useContext(AuthContext);
   const router = useRouter();
-  const { login } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(false);
   const [username, setUsername] = useState("");
@@ -37,7 +37,15 @@ export default function LoginPage() {
   const [errors, setErrors] = useState("");
   const [isForget, setIsForget] = useState(false);
   //
-
+  const loginGoogle = useGoogleLogin({
+    scope:
+      "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid",
+    onSuccess: (token) => loginWithGoogle(token.access_token),
+    overrideScope: true,
+  });
+  const handleLoginFacebook = () => {
+    toast.warning("Tính năng đang bảo trì!");
+  };
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -46,8 +54,7 @@ export default function LoginPage() {
       //   { abortEarly: false }
       // );
       const res = await login(username, password);
-      console.log('res:', res)
-      if (!res?.status) {
+      if (!res?.success) {
         toast.warning(res?.message);
       } else {
         router.push("/");
@@ -137,14 +144,22 @@ export default function LoginPage() {
           ) : (
             <div className={styles["login-session"]}>
               <h2>Chào mừng trở lại</h2>
-              <Link href={"#"} className={styles["login-fb"]}>
+              <div
+                className={styles["login-fb"]}
+                onClick={handleLoginFacebook}
+                style={{ cursor: "pointer" }}
+              >
                 <BsFacebook size={23} />
                 Đăng nhập bằng Facebook
-              </Link>
-              <Link href={"#"} className={styles["login-gg"]}>
+              </div>
+              <div
+                className={styles["login-gg"]}
+                onClick={() => loginGoogle()}
+                style={{ cursor: "pointer" }}
+              >
                 <FcGoogle size={23} />
                 Đăng nhập bằng Google
-              </Link>
+              </div>
               <div className={styles["line-text"]}>
                 <div className={styles["line"]}></div>
                 <div className={styles["text"]}>HOẶC</div>
