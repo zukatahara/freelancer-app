@@ -13,10 +13,10 @@ export default function Header({ pathname }) {
   const handleLogout = async () => {
     await logout();
     router.push("/");
+    setShowDivUserOptions(!showDivUserOptions);
   };
   //
   const handleShowDivUserOptions = () => {
-    console.log(`vao dau`)
     setShowDivUserOptions(!showDivUserOptions);
   };
   return (
@@ -44,8 +44,11 @@ export default function Header({ pathname }) {
         <div className="d-flex align-items-center">
           {Object.keys(user).length ? (
             <>
-              <div className="header-user" >
-               <p onClick={handleShowDivUserOptions}>Xin chào {user?.firstName} {user?.lastName} <AiFillCaretDown /></p> 
+              <div className="header-user">
+                <p onClick={handleShowDivUserOptions}>
+                  Xin chào {user?.firstName} {user?.lastName}{" "}
+                  <AiFillCaretDown />
+                </p>
                 <div
                   className="header-user-options"
                   style={{ display: showDivUserOptions ? "block" : "none" }}

@@ -19,8 +19,8 @@ import { toast } from "react-toastify";
 import { useCheckAuth } from "@/utils/useCheckAuth";
 import { useGoogleLogin } from "@react-oauth/google";
 const validationFormLoginSchema = Yup.object().shape({
-  username: Yup.string().required("Hãy nhập tên người dùng hoặc email"),
-  password: Yup.string().required("Hãy nhập mật khẩu"),
+  username: Yup.string().required(" "),
+  password: Yup.string().required(" "),
 });
 const validationEmailSchema = Yup.object().shape({
   email: Yup.string().required("Hãy nhập địa chỉ email của bạn."),
@@ -49,10 +49,10 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // await validationFormLoginSchema.validate(
-      //   { username, password },
-      //   { abortEarly: false }
-      // );
+      await validationFormLoginSchema.validate(
+        { username, password },
+        { abortEarly: false }
+      );
       const res = await login(username, password);
       if (!res?.success) {
         toast.warning(res?.message);
@@ -171,12 +171,12 @@ export default function LoginPage() {
                 <div>
                   <input
                     type="text"
-                    placeholder="Email hoặc tên đăng nhập"
+                    placeholder="Tên đăng nhập"
                     onChange={(e) => {
                       setUsername(e.target.value);
-                      // setErrors((prev) => {
-                      //   return { ...prev, username: "" };
-                      // });
+                      setErrors((prev) => {
+                        return { ...prev, username: "" };
+                      });
                     }}
                     className={errors.username ? styles["input-error"] : ""}
                   />
@@ -187,7 +187,7 @@ export default function LoginPage() {
                       visibility: errors.username ? "visible" : "hidden",
                     }}
                   >
-                    <IoIosWarning style={{ marginRight: "7px" }} />
+                    {/* <IoIosWarning style={{ marginRight: "7px" }} /> */}
                     {errors.username}
                   </p>
                 </div>
@@ -198,9 +198,9 @@ export default function LoginPage() {
                       placeholder="Mật khẩu"
                       onChange={(e) => {
                         setPassword(e.target.value);
-                        // setErrors((prev) => {
-                        //   return { ...prev, password: "" };
-                        // });
+                        setErrors((prev) => {
+                          return { ...prev, password: "" };
+                        });
                       }}
                       className={errors.password ? styles["input-error"] : ""}
                     />
@@ -221,7 +221,7 @@ export default function LoginPage() {
                       visibility: errors.password ? "visible" : "hidden",
                     }}
                   >
-                    <IoIosWarning style={{ marginRight: "7px" }} />
+                    {/* <IoIosWarning style={{ marginRight: "7px" }} /> */}
                     {errors.password}
                   </p>
                 </div>
