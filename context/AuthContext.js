@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const accessToken = JSON.stringify(localStorage.getItem("accessToken"));
     if (accessToken != "null") {
-      // loggedUser();
+      loggedUser();
     }
   }, []);
   const login = async (username, password) => {
@@ -50,12 +50,11 @@ const AuthProvider = ({ children }) => {
   };
   const loggedUser = async () => {
     const res = await getLoggedUser();
+    console.log("🚀 ~ file: AuthContext.js:53 ~ loggedUser ~ res:", res);
     setUser(res);
+    setToken(res?.jwtToken);
+    localStorage.setItem("accessToken", res?.jwtToken);
     return res;
-
-    // setUser({ firstName: "a", lastName: "b" });
-    // setToken("123avc");
-    // localStorage.setItem("accessToken", "123avc");
 
     return;
   };
