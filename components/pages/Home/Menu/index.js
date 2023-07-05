@@ -7,7 +7,7 @@ export default function MenuComponent({pathname}) {
     <div
     style={{
       display:
-        pathname.includes("login") || pathname.includes("signup")
+        pathname.includes("login") || pathname.includes("signup") || pathname.includes("dashboard") 
           ? "none"
           : "block",
     }}

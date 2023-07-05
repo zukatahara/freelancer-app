@@ -24,7 +24,7 @@ export default function Header({ pathname }) {
       className="header-container"
       style={{
         display:
-          pathname.includes("login") || pathname.includes("signup")
+          pathname.includes("login") || pathname.includes("signup") || pathname.includes("dashboard") 
             ? "none"
             : "flex",
       }}

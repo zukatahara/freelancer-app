@@ -74,7 +74,9 @@ export default function Footer({ pathname }) {
       className="container-footer"
       style={{
         display:
-          pathname.includes("login") || pathname.includes("signup")
+          pathname.includes("login") ||
+          pathname.includes("signup") ||
+          pathname.includes("dashboard")
             ? "none"
             : "flex",
       }}

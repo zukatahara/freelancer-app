@@ -137,8 +137,13 @@ ul {
 ul li {
   list-style: none;
 }
-.col-3.custom-col-3-dashboard {
+.col-2.custom-col-2-dashboard {
   padding-left: 0;
+  padding-right: 0;
+}
+.col-10.custom-col-10-dashboard {
+  padding-left: 0;
+  padding-right: 0;
 }
 .Toastify {
   position: absolute;
