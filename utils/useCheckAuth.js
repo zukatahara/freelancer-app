@@ -13,7 +13,7 @@ export const useCheckAuth = () => {
     if (Object.keys(user).length) {
       // đã có dữ liệu người dùng
       if (pathname.includes("/login") || pathname.includes("/signup")) {
-        router.replace("/");
+        router.replace("/dashboard");
       }
     } else {
       if (pathname.includes("/signup")) {
