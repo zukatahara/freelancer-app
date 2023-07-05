@@ -1,25 +1,57 @@
+"use client";
 import MenuDashboard from "@/components/pages/Dashboard/Menu";
 import style from "./style.module.css";
 import { RxAvatar } from "react-icons/rx";
+import { HiMenuAlt3 } from "react-icons/hi";
+
+import Image from "next/image";
+import { useState } from "react";
+
 export default function DashboardLayout({ children, params }) {
   // URL -> /shop/shoes/nike-air-max-97
   // `params` -> { tag: 'shoes', item: 'nike-air-max-97' }
+  const [flag, setFlag] = useState(false);
+  const handleClickButtonMenuMobile = () => {
+    setFlag(!flag);
+  };
+  const flagChildToParent = () => {
+    setFlag(false);
+  };
   return (
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-2 custom-col-2-dashboard">
-            <MenuDashboard />
+          <div className="col-lg-2 custom-col-lg-2-dashboard">
+            <div className={style["header-content"]}>
+              <div className={`${style["logo"]}`}>
+                <Image src="/logo/logo.png" height="77" width="100" alt="" />
+              </div>
+              <div
+                className={style["button-menu-mobile"]}
+                onClick={() => handleClickButtonMenuMobile()}
+              >
+                <HiMenuAlt3
+                  size={36}
+                  style={{ color: "#fff" }}
+                  className="d-lg-none"
+                />
+              </div>
+            </div>
+
+            <MenuDashboard
+              flag={flag}
+              flagChildToParent={()=>flagChildToParent()}
+            />
           </div>
-          <div className="col-10 custom-col-10-dashboard">
-            <div className={style["header"]}>
-              <div class={style["content"]}>
+          <div className="col-lg-10 custom-col-lg-10-dashboard">
+            <div className={`${style["header"]} d-none d-lg-block`}>
+              <div class={`${style["content"]}`}>
                 <div className={style["info"]}>
-                  <RxAvatar size={26} style={{marginRight:"7px"}}/> {" "} admin
+                  <RxAvatar size={26} style={{ marginRight: "7px" }} /> admin
                 </div>
               </div>
             </div>
-            {children}
+            <div>{children}</div>
           </div>
         </div>
       </div>

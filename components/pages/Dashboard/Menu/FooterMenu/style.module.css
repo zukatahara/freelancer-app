@@ -1,0 +1,20 @@
+.content{
+    margin-top:2.5rem;
+    display: flex;
+    justify-content: space-between;
+   
+}
+.content .btn{
+    cursor:pointer;
+    padding: 12px 41px;
+    color:#fff;
+    background:#ff9900;
+    font-weight: 500;
+    font-size: 16px;
+    
+    
+}
+.btn.logout{
+    background:#fff;
+    color:#ff9900;
+}

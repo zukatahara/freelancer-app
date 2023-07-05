@@ -137,14 +137,7 @@ ul {
 ul li {
   list-style: none;
 }
-.col-2.custom-col-2-dashboard {
-  padding-left: 0;
-  padding-right: 0;
-}
-.col-10.custom-col-10-dashboard {
-  padding-left: 0;
-  padding-right: 0;
-}
+
 .Toastify {
   position: absolute;
   z-index: 999999;
@@ -289,4 +282,22 @@ ul li {
   left: auto;
   right: 15%;
   animation-delay: 0.3s;
+}
+
+/*  */
+@media (min-width: 992px) {
+  .col-lg-2.custom-col-lg-2-dashboard {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .col-lg-10.custom-col-lg-10-dashboard {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width: 991px) {
+  .col-lg-2.custom-col-lg-2-dashboard {
+    background-color: #303030;
+  } 
+
 }

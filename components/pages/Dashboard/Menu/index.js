@@ -1,28 +1,30 @@
 "use client";
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import style from "./style.module.css";
 import { AiOutlineRight } from "react-icons/ai";
 import Link from "next/link";
-export default function MenuDashboard() {
+import FooterMenu from "./FooterMenu";
+export default function MenuDashboard({ flag,flagChildToParent }) {
   const [activeMenu, setActiveMenu] = useState(0);
-
+  const [flagData, setFlagData] = useState(flag);
   const handleMenuClick = (index) => {
     setActiveMenu(index);
+  setFlagData(false)
+  flagChildToParent(false)
   };
+  useEffect(()=>{
+    setFlagData(flag)
+  },[flag])
   return (
     <>
-      <div className={style["main-menu"]}>
-        <div className={style["logo"]}>
-          <Image src="/logo/logo.png" height="77" width="100" alt="" />
-        </div>
+      <div className={`${style["main-menu"]} ${flagData ===true? style.active : ""}`}>
         <ul className={style.menu}>
           <li
             className={`${style.item} ${activeMenu === 0 ? style.active : ""}`}
             onClick={() => handleMenuClick(0)}
           >
             <Link
-              href="#"
+              href="/dashboard/congtacvien"
               className={`${style.item} ${
                 activeMenu === 0 ? style.active : ""
               }`}
@@ -36,7 +38,10 @@ export default function MenuDashboard() {
                 <Link href="#">demo001</Link>
               </li>
               <li className={style["li-submenu"]}>
-              <Link href="#">demo001</Link>
+                <Link href="#">demo001</Link>
+              </li>
+              <li className={style["li-submenu"]}>
+                <Link href="#">demo001</Link>
               </li>
             </ul>
           </li>
@@ -47,7 +52,7 @@ export default function MenuDashboard() {
             onClick={() => handleMenuClick(1)}
           >
             <Link
-              href="#"
+              href="/dashboard/danhsachbaiviet"
               className={`${style.itelim} ${
                 activeMenu === 1 ? style.active : ""
               }`}
@@ -61,7 +66,7 @@ export default function MenuDashboard() {
             onClick={() => handleMenuClick(2)}
           >
             <Link
-              href="#"
+              href="/dashboard/danhsachchuyenmuc"
               className={`${style.item} ${
                 activeMenu === 2 ? style.active : ""
               }`}
@@ -74,11 +79,12 @@ export default function MenuDashboard() {
                 <Link href="#">demo001</Link>
               </li>
               <li className={style["li-submenu"]}>
-              <Link href="#">demo001</Link>
+                <Link href="#">demo001</Link>
               </li>
             </ul>
           </li>
         </ul>
+        <FooterMenu />
       </div>
     </>
   );
