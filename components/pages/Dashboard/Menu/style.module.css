@@ -1,0 +1,35 @@
+.main-menu {
+  height: 100vh;
+  overflow-y: auto;
+  background: #303030;
+}
+.main-menu .logo {
+  text-align: center;
+}
+.main-menu .logo img {
+  object-fit: contain;
+}
+.main-menu ul.menu {
+  padding-left: 0;
+}
+ul.menu li {
+  list-style: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition:.3s;
+}
+ul.menu li.active {
+  background: #ff9900;
+}
+ul.menu li:hover{
+    background: #ff9900;
+}
+.abc{
+    color:red
+}
