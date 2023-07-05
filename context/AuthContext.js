@@ -50,13 +50,10 @@ const AuthProvider = ({ children }) => {
   };
   const loggedUser = async () => {
     const res = await getLoggedUser();
-    console.log("🚀 ~ file: AuthContext.js:53 ~ loggedUser ~ res:", res);
     setUser(res);
     setToken(res?.jwtToken);
     localStorage.setItem("accessToken", res?.jwtToken);
     return res;
-
-    return;
   };
 
   const logout = async () => {

@@ -8,18 +8,24 @@ export const useCheckAuth = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { user } = useContext(AuthContext);
-
   useEffect(() => {
     if (Object.keys(user).length) {
       // đã có dữ liệu người dùng
-      if (pathname.includes("/login") || pathname.includes("/signup")) {
+      if (
+        pathname.includes("/login") ||
+        pathname.includes("/signup") ||
+        pathname === "/"
+      ) {
+        console.log(`vao day`);
         router.replace("/dashboard");
       }
     } else {
       if (pathname.includes("/signup")) {
         router.push("/signup");
-      } else {
+      } else if (pathname.includes("/login")) {
         router.push("/login");
+      } else {
+        router.push("/");
       }
     }
   }, [router, user, pathname]);

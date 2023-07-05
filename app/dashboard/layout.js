@@ -6,6 +6,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 
 import Image from "next/image";
 import { useState } from "react";
+import { useCheckAuth } from "@/utils/useCheckAuth";
 
 export default function DashboardLayout({ children, params }) {
   // URL -> /shop/shoes/nike-air-max-97
@@ -17,6 +18,7 @@ export default function DashboardLayout({ children, params }) {
   const flagChildToParent = () => {
     setFlag(false);
   };
+  useCheckAuth();
   return (
     <>
       <div className="container-fluid">
@@ -40,12 +42,12 @@ export default function DashboardLayout({ children, params }) {
 
             <MenuDashboard
               flag={flag}
-              flagChildToParent={()=>flagChildToParent()}
+              flagChildToParent={() => flagChildToParent()}
             />
           </div>
           <div className="col-lg-10 custom-col-lg-10-dashboard">
             <div className={`${style["header"]} d-none d-lg-block`}>
-              <div class={`${style["content"]}`}>
+              <div className={`${style["content"]}`}>
                 <div className={style["info"]}>
                   <RxAvatar size={26} style={{ marginRight: "7px" }} /> admin
                 </div>
