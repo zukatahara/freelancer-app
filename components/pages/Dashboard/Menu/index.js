@@ -4,20 +4,26 @@ import style from "./style.module.css";
 import { AiOutlineRight } from "react-icons/ai";
 import Link from "next/link";
 import FooterMenu from "./FooterMenu";
-export default function MenuDashboard({ flag,flagChildToParent }) {
+import { menuForCTV } from "@/mockup/menuDashboardData";
+
+export default function MenuDashboard({ flag, flagChildToParent,role }) {
   const [activeMenu, setActiveMenu] = useState(0);
   const [flagData, setFlagData] = useState(flag);
   const handleMenuClick = (index) => {
     setActiveMenu(index);
-  setFlagData(false)
-  flagChildToParent(false)
+    setFlagData(false);
+    flagChildToParent(false);
   };
-  useEffect(()=>{
-    setFlagData(flag)
-  },[flag])
+  useEffect(() => {
+    setFlagData(flag);
+  }, [flag]);
   return (
     <>
-      <div className={`${style["main-menu"]} ${flagData ===true? style.active : ""}`}>
+      <div
+        className={`${style["main-menu"]} ${
+          flagData === true ? style.active : ""
+        }`}
+      >
         <ul className={style.menu}>
           <li
             className={`${style.item} ${activeMenu === 0 ? style.active : ""}`}

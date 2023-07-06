@@ -14,7 +14,6 @@ const initialValue = {
   user: {},
   accessToken: "",
 };
-
 export const AuthContext = createContext(initialValue);
 
 const AuthProvider = ({ children }) => {

@@ -5,12 +5,19 @@ import { RxAvatar } from "react-icons/rx";
 import { HiMenuAlt3 } from "react-icons/hi";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCheckAuth } from "@/utils/useCheckAuth";
 
 export default function DashboardLayout({ children, params }) {
   // URL -> /shop/shoes/nike-air-max-97
   // `params` -> { tag: 'shoes', item: 'nike-air-max-97' }
+  const { user } = useCheckAuth();
+  console.log("user:", user);
+
+  const [username, setUsername] = useState({});
+  useEffect(() => {
+    setUsername(user);
+  }, []);
   const [flag, setFlag] = useState(false);
   const handleClickButtonMenuMobile = () => {
     setFlag(!flag);
@@ -43,13 +50,17 @@ export default function DashboardLayout({ children, params }) {
             <MenuDashboard
               flag={flag}
               flagChildToParent={() => flagChildToParent()}
+              role={username}
             />
           </div>
           <div className="col-lg-10 custom-col-lg-10-dashboard">
             <div className={`${style["header"]} d-none d-lg-block`}>
               <div className={`${style["content"]}`}>
                 <div className={style["info"]}>
-                  <RxAvatar size={26} style={{ marginRight: "7px" }} /> admin
+                  <RxAvatar size={26} style={{ marginRight: "7px" }} />
+                  {Object.keys(username).length > 0
+                    ? `${username?.firstName} ${username?.lastName}`
+                    : "Loading..."}
                 </div>
               </div>
             </div>
